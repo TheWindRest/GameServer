@@ -1,0 +1,23 @@
+syntax = "proto2";
+
+package GC_GS;
+
+enum MsgID
+{
+	GC2GS_TokenLogin = 201;
+	GS2GC_Error = 202;
+}
+
+message TokenLogin
+{
+	optional MsgID msgid = 1 [default = GC2GS_TokenLogin];
+	optional string mail = 2;
+	optional string password = 3;
+	optional string token = 4;
+}
+
+message ErrorMsg
+{
+	optional MsgID msgid = 1 [default = GS2GC_Error];
+	optional int32 errorid = 2;
+}

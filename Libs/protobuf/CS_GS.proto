@@ -1,0 +1,120 @@
+syntax = "proto2";
+
+package CS_GS;
+
+enum MsgID
+{
+    CS2GS_AskRegister = 2000;
+    GS2CS_Error = 2001;
+    CS2GS_UserInfo = 2002;
+    CS2GS_StartMatch = 2003;
+    CS2GS_EnterRoom = 2004;
+    CS2GS_TransformSync = 2005;
+    CS2GS_StateSync = 2006;
+    CS2GS_ShootBullet = 2007;
+    CS2GS_TakeDamage = 2008;
+    CS2GS_EntityDestroy = 2009;
+}
+
+message AskRegister
+{
+    optional MsgID msgid = 1 [default = CS2GS_AskRegister];
+    optional int32 state = 2;
+    repeated MsgID msgList = 3;
+}
+
+message ErrorMsg
+{
+    optional MsgID msgid = 1 [default = GS2CS_Error];
+    optional int32 errorid = 2;
+}
+
+message TransmitMsg
+{
+    optional string mail = 1;
+    optional MsgID msgid = 2;
+    optional bytes data = 3;
+}
+
+message UserInfo
+{
+    optional MsgID msgid = 1 [default = CS2GS_UserInfo];
+    optional string name = 2;
+}
+
+message StartMatch
+{
+    optional MsgID msgid = 1 [default = CS2GS_StartMatch];
+    optional string mail = 2;
+    optional int32 result = 3;
+}
+
+message EnterRoom
+{
+    optional MsgID msgid = 1 [default = CS2GS_EnterRoom];
+    optional string mail = 2;
+    optional string name = 3;
+    optional string roomid = 4;
+}
+
+message TransformInfo
+{
+    optional string mail = 1;
+    optional float speed = 2;
+    repeated float position = 3;
+    repeated float rotation = 4;
+}
+
+message TransformSync
+{
+    optional MsgID msgid = 1 [default = CS2GS_TransformSync];
+    optional string mail = 2;
+    optional string roomid = 3;
+    repeated TransformInfo transforminfo = 4;
+}
+
+message StateSync
+{
+    optional MsgID msgid = 1 [default = CS2GS_StateSync];
+    optional string mail = 2;
+    optional string roomid = 3;
+    optional int32 health = 4;
+}
+
+message ShootBullet
+{
+    optional MsgID msgid = 1 [default = CS2GS_ShootBullet];
+    optional string mail = 2;
+    optional string roomid = 3;
+    optional int32 weaponid = 4;
+}
+
+enum EntityType
+{
+    Entity_Active = 1;
+    Entity_Static = 2;
+}
+
+message Entity
+{
+    optional EntityType entitytype = 1;
+    optional string entityid = 2;
+}
+
+message TakeDamage
+{
+    optional MsgID msgid = 1 [default = CS2GS_TakeDamage];
+    optional string mail = 2;
+    optional string roomid = 3;
+    optional int32 weaponid = 4; 
+    optional int32 bulletid = 5; 
+    optional Entity shooter = 6;
+    optional Entity target = 7; 
+}
+
+message EntityDestroy
+{
+    optional MsgID msgid = 1 [default = CS2GS_EntityDestroy];
+    optional string mail = 2;
+    optional string entity = 3;
+}

@@ -1,0 +1,60 @@
+{
+    "server_name": "wind",
+
+    "login_server": {
+        "client_listen": {
+            "host": "192.168.1.180",
+            "port": 10000
+        },
+
+        "gate_listen": {
+            "host": "192.168.1.180",
+            "port": 10001
+        },
+
+        "gate_address":{
+            "192.168.1.180": "冰封王座"
+        }
+    },
+
+    "gate_server": {
+        "client_listen": {
+            "host": "192.168.1.180",
+            "port": 10002
+        },
+
+        "center_listen": {
+            "host": "192.168.1.180",
+            "port": 10003
+        },
+
+        "login_address": {
+            "host": "192.168.1.180",
+            "port": 10001
+        },
+
+        "center_address": {
+            "192.168.1.180": "逻辑1服"
+        }
+    },
+
+    "center_server": {
+        "gate_address": {
+            "host": "192.168.1.180",
+            "port": 10003
+        }
+    },  
+
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379,
+        "db": 0
+    },
+
+    "log_path": "G:/VSProject/Python",
+
+    "mongodb": {
+        "host": "127.0.0.1",
+        "port": 7912
+    }
+}

@@ -1,0 +1,32 @@
+syntax = "proto2";
+
+package GS_LS;
+
+enum MsgID
+{
+    GS2LS_AskRegister = 1000;
+    GS2LS_Error = 1001;
+    GS2LS_CheckLogin = 1002;
+}
+
+message AskRegister
+{
+    optional MsgID msgid = 1 [default = GS2LS_AskRegister];
+    optional string host = 2;
+    optional int32 port = 3;
+    optional int32 state = 4;
+}
+
+message ErrorMsg
+{
+    optional MsgID msgid = 1 [default = GS2LS_Error];
+    optional string errorid = 2;
+}
+
+message CheckLogin
+{
+    optional MsgID msgid = 1 [default = GS2LS_CheckLogin];
+    optional string mail = 2;
+    optional string password = 3;
+    optional int32 result = 4;
+}
