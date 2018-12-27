@@ -52,6 +52,7 @@ class Room():
         if member.lastShootTime + const.ShootCD > time.time():
             return
         member.lastShootTime = time.time()
+        self.broadcastMsg(msg)
 
     def update(self, timeInterval):
         msgInfo = CS_GS_pb2.TransformSync()
