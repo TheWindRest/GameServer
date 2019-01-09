@@ -5,30 +5,39 @@ import copy
 import time
 from Libs import const
 from CenterServer.Models import user
+from CenterServer.Models import map_data
 
 
 class Room():
     roomID = 0
+    mapID = 0
+    mapData = ""
+    mapArray = []
     members = {}
     gateProto = None
 
-    def __init__(self, ID):
+    def __init__(self, ID, mapID=1):
         self.roomID = ID
+        self.mapID = mapID
+        self.mapData, self.mapArray = map_data.getMapData(mapID)
         self.gateProto = server.GateInstance.gateProto
 
     def addPlayers(self, players):
-        for key, value in enumerate(players):
-            self.members[value] = player.Player(value)
+        for _, value in enumerate(players):
             userInfo = user.getUser(value)
-            if userInfo:
-                userInfo["roomid"] = self.roomID
-                user.updateUser(userInfo, ["roomid"])
+            if userInfo is None:
+                continue
+            userInfo["roomid"] = self.roomID
+            user.updateUser(userInfo, ["roomid"])
+            self.members[value] = player.Player(value, userInfo["name"])
             zipMsg = CS_GS_pb2.TransmitMsg()
             zipMsg.mail = value
             msgInfo = CS_GS_pb2.EnterRoom()
             msgInfo.mail = value
-            msgInfo.name = "test"
+            msgInfo.name = userInfo["name"]
             msgInfo.roomid = self.roomID
+            msgInfo.mapid = str(self.mapID)
+            msgInfo.mapdata = self.mapData
             self.gateProto.transmitMessage(zipMsg, msgInfo)
 
     def deletePlayer(self, mail):

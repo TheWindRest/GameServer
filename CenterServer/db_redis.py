@@ -12,3 +12,8 @@ def initRedis(configFile):
     else:
         print("connect redis failed!")
         exit(0)
+
+
+def getTable(tableName):
+    table = DBRedis.hget("config", tableName)
+    return eval(table)

@@ -55,6 +55,8 @@ message EnterRoom
     optional string mail = 2;
     optional string name = 3;
     optional string roomid = 4;
+    optional string mapid = 5;
+    optional string mapdata = 6;
 }
 
 message TransformInfo
@@ -106,15 +108,15 @@ message TakeDamage
     optional MsgID msgid = 1 [default = CS2GS_TakeDamage];
     optional string mail = 2;
     optional string roomid = 3;
-    optional int32 weaponid = 4; 
-    optional int32 bulletid = 5; 
+    optional int32 weaponid = 4;
+    optional int32 bulletid = 5;
     optional Entity shooter = 6;
-    optional Entity target = 7; 
+    optional Entity target = 7;
 }
 
 message EntityDestroy
 {
     optional MsgID msgid = 1 [default = CS2GS_EntityDestroy];
     optional string mail = 2;
-    optional string entity = 3;
+    optional Entity entity = 3;
 }

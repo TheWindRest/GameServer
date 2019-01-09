@@ -4,6 +4,7 @@ from Libs import const
 
 class Player():
     mail = None
+    name = None
     active = False
     speed = 0
     rotation = [0, 0, 0]
@@ -13,8 +14,9 @@ class Player():
 
     lastShootTime = 0
 
-    def __init__(self, mail):
+    def __init__(self, mail, name):
         self.mail = mail
+        self.name = name
 
     def update(self, timeInterval):
         direction = np.array(self.rotation, dtype=np.float)
