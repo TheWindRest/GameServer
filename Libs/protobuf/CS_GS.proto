@@ -81,6 +81,7 @@ message StateSync
     optional string mail = 2;
     optional string roomid = 3;
     optional int32 health = 4;
+    optional int32 score = 5;
 }
 
 message ShootBullet

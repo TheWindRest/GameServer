@@ -1,20 +1,20 @@
 import numpy as np
 from Libs import const
+from CenterServer.Models import entity
 
 
-class Player():
+class Player(entity.Entity):
     mail = None
     name = None
     active = False
-    speed = 0
-    rotation = [0, 0, 0]
-    position = [0, 0, 0]
-    health = 100
     weapon = None
 
+    score = 0
+    bullet = 100
     lastShootTime = 0
 
-    def __init__(self, mail, name):
+    def __init__(self, ID, mail, name):
+        entity.Entity.__init__(self, ID)
         self.mail = mail
         self.name = name
 

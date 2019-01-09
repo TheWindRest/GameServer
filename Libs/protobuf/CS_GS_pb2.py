@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='CS_GS',
   syntax='proto2',
   serialized_options=None,
-  serialized_pb=_b('\n\x0b\x43S_GS.proto\x12\x05\x43S_GS\"k\n\x0b\x41skRegister\x12.\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x11\x43S2GS_AskRegister\x12\r\n\x05state\x18\x02 \x01(\x05\x12\x1d\n\x07msgList\x18\x03 \x03(\x0e\x32\x0c.CS_GS.MsgID\"E\n\x08\x45rrorMsg\x12(\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x0bGS2CS_Error\x12\x0f\n\x07\x65rrorid\x18\x02 \x01(\x05\"F\n\x0bTransmitMsg\x12\x0c\n\x04mail\x18\x01 \x01(\t\x12\x1b\n\x05msgid\x18\x02 \x01(\x0e\x32\x0c.CS_GS.MsgID\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\"E\n\x08UserInfo\x12+\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x0e\x43S2GS_UserInfo\x12\x0c\n\x04name\x18\x02 \x01(\t\"Y\n\nStartMatch\x12-\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x10\x43S2GS_StartMatch\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06result\x18\x03 \x01(\x05\"\x85\x01\n\tEnterRoom\x12,\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x0f\x43S2GS_EnterRoom\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0e\n\x06roomid\x18\x04 \x01(\t\x12\r\n\x05mapid\x18\x05 \x01(\t\x12\x0f\n\x07mapdata\x18\x06 \x01(\t\"P\n\rTransformInfo\x12\x0c\n\x04mail\x18\x01 \x01(\t\x12\r\n\x05speed\x18\x02 \x01(\x02\x12\x10\n\x08position\x18\x03 \x03(\x02\x12\x10\n\x08rotation\x18\x04 \x03(\x02\"\x8c\x01\n\rTransformSync\x12\x30\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x13\x43S2GS_TransformSync\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\t\x12+\n\rtransforminfo\x18\x04 \x03(\x0b\x32\x14.CS_GS.TransformInfo\"g\n\tStateSync\x12,\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x0f\x43S2GS_StateSync\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\t\x12\x0e\n\x06health\x18\x04 \x01(\x05\"m\n\x0bShootBullet\x12.\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x11\x43S2GS_ShootBullet\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\t\x12\x10\n\x08weaponid\x18\x04 \x01(\x05\"A\n\x06\x45ntity\x12%\n\nentitytype\x18\x01 \x01(\x0e\x32\x11.CS_GS.EntityType\x12\x10\n\x08\x65ntityid\x18\x02 \x01(\t\"\xbc\x01\n\nTakeDamage\x12-\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x10\x43S2GS_TakeDamage\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\t\x12\x10\n\x08weaponid\x18\x04 \x01(\x05\x12\x10\n\x08\x62ulletid\x18\x05 \x01(\x05\x12\x1e\n\x07shooter\x18\x06 \x01(\x0b\x32\r.CS_GS.Entity\x12\x1d\n\x06target\x18\x07 \x01(\x0b\x32\r.CS_GS.Entity\"_\n\rEntityDestroy\x12\x30\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x13\x43S2GS_EntityDestroy\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06\x65ntity\x18\x03 \x01(\t*\xec\x01\n\x05MsgID\x12\x16\n\x11\x43S2GS_AskRegister\x10\xd0\x0f\x12\x10\n\x0bGS2CS_Error\x10\xd1\x0f\x12\x13\n\x0e\x43S2GS_UserInfo\x10\xd2\x0f\x12\x15\n\x10\x43S2GS_StartMatch\x10\xd3\x0f\x12\x14\n\x0f\x43S2GS_EnterRoom\x10\xd4\x0f\x12\x18\n\x13\x43S2GS_TransformSync\x10\xd5\x0f\x12\x14\n\x0f\x43S2GS_StateSync\x10\xd6\x0f\x12\x16\n\x11\x43S2GS_ShootBullet\x10\xd7\x0f\x12\x15\n\x10\x43S2GS_TakeDamage\x10\xd8\x0f\x12\x18\n\x13\x43S2GS_EntityDestroy\x10\xd9\x0f*2\n\nEntityType\x12\x11\n\rEntity_Active\x10\x01\x12\x11\n\rEntity_Static\x10\x02')
+  serialized_pb=_b('\n\x0b\x43S_GS.proto\x12\x05\x43S_GS\"k\n\x0b\x41skRegister\x12.\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x11\x43S2GS_AskRegister\x12\r\n\x05state\x18\x02 \x01(\x05\x12\x1d\n\x07msgList\x18\x03 \x03(\x0e\x32\x0c.CS_GS.MsgID\"E\n\x08\x45rrorMsg\x12(\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x0bGS2CS_Error\x12\x0f\n\x07\x65rrorid\x18\x02 \x01(\x05\"F\n\x0bTransmitMsg\x12\x0c\n\x04mail\x18\x01 \x01(\t\x12\x1b\n\x05msgid\x18\x02 \x01(\x0e\x32\x0c.CS_GS.MsgID\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\"E\n\x08UserInfo\x12+\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x0e\x43S2GS_UserInfo\x12\x0c\n\x04name\x18\x02 \x01(\t\"Y\n\nStartMatch\x12-\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x10\x43S2GS_StartMatch\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06result\x18\x03 \x01(\x05\"\x85\x01\n\tEnterRoom\x12,\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x0f\x43S2GS_EnterRoom\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0c\n\x04name\x18\x03 \x01(\t\x12\x0e\n\x06roomid\x18\x04 \x01(\t\x12\r\n\x05mapid\x18\x05 \x01(\t\x12\x0f\n\x07mapdata\x18\x06 \x01(\t\"P\n\rTransformInfo\x12\x0c\n\x04mail\x18\x01 \x01(\t\x12\r\n\x05speed\x18\x02 \x01(\x02\x12\x10\n\x08position\x18\x03 \x03(\x02\x12\x10\n\x08rotation\x18\x04 \x03(\x02\"\x8c\x01\n\rTransformSync\x12\x30\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x13\x43S2GS_TransformSync\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\t\x12+\n\rtransforminfo\x18\x04 \x03(\x0b\x32\x14.CS_GS.TransformInfo\"v\n\tStateSync\x12,\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x0f\x43S2GS_StateSync\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\t\x12\x0e\n\x06health\x18\x04 \x01(\x05\x12\r\n\x05score\x18\x05 \x01(\x05\"m\n\x0bShootBullet\x12.\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x11\x43S2GS_ShootBullet\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\t\x12\x10\n\x08weaponid\x18\x04 \x01(\x05\"A\n\x06\x45ntity\x12%\n\nentitytype\x18\x01 \x01(\x0e\x32\x11.CS_GS.EntityType\x12\x10\n\x08\x65ntityid\x18\x02 \x01(\t\"\xbc\x01\n\nTakeDamage\x12-\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x10\x43S2GS_TakeDamage\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x0e\n\x06roomid\x18\x03 \x01(\t\x12\x10\n\x08weaponid\x18\x04 \x01(\x05\x12\x10\n\x08\x62ulletid\x18\x05 \x01(\x05\x12\x1e\n\x07shooter\x18\x06 \x01(\x0b\x32\r.CS_GS.Entity\x12\x1d\n\x06target\x18\x07 \x01(\x0b\x32\r.CS_GS.Entity\"n\n\rEntityDestroy\x12\x30\n\x05msgid\x18\x01 \x01(\x0e\x32\x0c.CS_GS.MsgID:\x13\x43S2GS_EntityDestroy\x12\x0c\n\x04mail\x18\x02 \x01(\t\x12\x1d\n\x06\x65ntity\x18\x03 \x01(\x0b\x32\r.CS_GS.Entity*\xec\x01\n\x05MsgID\x12\x16\n\x11\x43S2GS_AskRegister\x10\xd0\x0f\x12\x10\n\x0bGS2CS_Error\x10\xd1\x0f\x12\x13\n\x0e\x43S2GS_UserInfo\x10\xd2\x0f\x12\x15\n\x10\x43S2GS_StartMatch\x10\xd3\x0f\x12\x14\n\x0f\x43S2GS_EnterRoom\x10\xd4\x0f\x12\x18\n\x13\x43S2GS_TransformSync\x10\xd5\x0f\x12\x14\n\x0f\x43S2GS_StateSync\x10\xd6\x0f\x12\x16\n\x11\x43S2GS_ShootBullet\x10\xd7\x0f\x12\x15\n\x10\x43S2GS_TakeDamage\x10\xd8\x0f\x12\x18\n\x13\x43S2GS_EntityDestroy\x10\xd9\x0f*2\n\nEntityType\x12\x11\n\rEntity_Active\x10\x01\x12\x11\n\rEntity_Static\x10\x02')
 )
 
 _MSGID = _descriptor.EnumDescriptor(
@@ -72,8 +72,8 @@ _MSGID = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1369,
-  serialized_end=1605,
+  serialized_start=1399,
+  serialized_end=1635,
 )
 _sym_db.RegisterEnumDescriptor(_MSGID)
 
@@ -95,8 +95,8 @@ _ENTITYTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=1607,
-  serialized_end=1657,
+  serialized_start=1637,
+  serialized_end=1687,
 )
 _sym_db.RegisterEnumDescriptor(_ENTITYTYPE)
 
@@ -532,6 +532,13 @@ _STATESYNC = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='score', full_name='CS_GS.StateSync.score', index=4,
+      number=5, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -545,7 +552,7 @@ _STATESYNC = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=797,
-  serialized_end=900,
+  serialized_end=915,
 )
 
 
@@ -596,8 +603,8 @@ _SHOOTBULLET = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=902,
-  serialized_end=1011,
+  serialized_start=917,
+  serialized_end=1026,
 )
 
 
@@ -634,8 +641,8 @@ _ENTITY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1013,
-  serialized_end=1078,
+  serialized_start=1028,
+  serialized_end=1093,
 )
 
 
@@ -707,8 +714,8 @@ _TAKEDAMAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1081,
-  serialized_end=1269,
+  serialized_start=1096,
+  serialized_end=1284,
 )
 
 
@@ -735,8 +742,8 @@ _ENTITYDESTROY = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='entity', full_name='CS_GS.EntityDestroy.entity', index=2,
-      number=3, type=9, cpp_type=9, label=1,
-      has_default_value=False, default_value=_b("").decode('utf-8'),
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -752,8 +759,8 @@ _ENTITYDESTROY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1271,
-  serialized_end=1366,
+  serialized_start=1286,
+  serialized_end=1396,
 )
 
 _ASKREGISTER.fields_by_name['msgid'].enum_type = _MSGID
@@ -772,6 +779,7 @@ _TAKEDAMAGE.fields_by_name['msgid'].enum_type = _MSGID
 _TAKEDAMAGE.fields_by_name['shooter'].message_type = _ENTITY
 _TAKEDAMAGE.fields_by_name['target'].message_type = _ENTITY
 _ENTITYDESTROY.fields_by_name['msgid'].enum_type = _MSGID
+_ENTITYDESTROY.fields_by_name['entity'].message_type = _ENTITY
 DESCRIPTOR.message_types_by_name['AskRegister'] = _ASKREGISTER
 DESCRIPTOR.message_types_by_name['ErrorMsg'] = _ERRORMSG
 DESCRIPTOR.message_types_by_name['TransmitMsg'] = _TRANSMITMSG

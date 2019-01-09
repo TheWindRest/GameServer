@@ -88,7 +88,7 @@ def process_transform_sync(p, zipMsg):
 
 
 def process_shoot_bullet(p, zipMsg):
-    msgInfo = CS_GS_pb2.TransformSync()
+    msgInfo = CS_GS_pb2.ShootBullet()
     msgInfo.ParseFromString(zipMsg.data)
     log.msg("recv msg:" + msgInfo.__str__())
 
@@ -98,4 +98,18 @@ def process_shoot_bullet(p, zipMsg):
     else:
         msgInfo = CS_GS_pb2.ErrorMsg()
         msgInfo.errorid = error.ERR_SHOOT_BULLET
+        p.transmitMessage(zipMsg, msgInfo)
+
+
+def process_take_damage(p, zipMsg):
+    msgInfo = CS_GS_pb2.TakeDamage()
+    msgInfo.ParseFromString(zipMsg.data)
+    log.msg("recv msg:" + msgInfo.__str__())
+
+    house = p.factory.roomDict.get(msgInfo.roomid)
+    if house:
+        house.shootBullet(msgInfo)
+    else:
+        msgInfo = CS_GS_pb2.ErrorMsg()
+        msgInfo.errorid = error.ERR_MSG_ERROR
         p.transmitMessage(zipMsg, msgInfo)

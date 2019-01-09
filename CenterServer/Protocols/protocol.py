@@ -13,6 +13,7 @@ class GateProtocol(base_protocol.GoogleProtocol):
         CS_GS_pb2.CS2GS_StartMatch: CenterService.process_start_match,
         CS_GS_pb2.CS2GS_TransformSync: CenterService.process_transform_sync,
         CS_GS_pb2.CS2GS_ShootBullet: CenterService.process_shoot_bullet,
+        CS_GS_pb2.CS2GS_TakeDamage: CenterService.process_take_damage,
     }
 
     def connectionMade(self):
