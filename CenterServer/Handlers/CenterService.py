@@ -108,7 +108,7 @@ def process_take_damage(p, zipMsg):
 
     house = p.factory.roomDict.get(msgInfo.roomid)
     if house:
-        house.shootBullet(msgInfo)
+        house.takeDamage(msgInfo)
     else:
         msgInfo = CS_GS_pb2.ErrorMsg()
         msgInfo.errorid = error.ERR_MSG_ERROR

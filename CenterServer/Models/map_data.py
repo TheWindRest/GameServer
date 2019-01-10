@@ -9,6 +9,7 @@ def getMapData(mapID):
     filePath = join(const.AppPath, r'Libs/map/MapInfo' + str(mapName) + r"_Level1.bytes")
     with open(normpath(filePath), 'r') as f:
         content = f.read()
+        f.seek(0, 0)
         mapArray = []
         for line in f.readlines():
             lineArray = [value for value in line.split(',')]

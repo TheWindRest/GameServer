@@ -85,13 +85,28 @@ class Room():
             target = self.members.get(msg.target.entityid)
         elif msg.target.entitytype == CS_GS_pb2.Entity_Static:
             x, y = msg.target.entityid.split('_')
-            target = self.entitys[int(x)][int(y)]
+            target = self.entitys[int(x) - 1][int(y) - 1]
         member.score += 10
         target.health -= 10
 
+        msg.damage = 10
+        self.broadcastMsg(msg)
+
+        msgInfo = CS_GS_pb2.StateSync()
+        msgInfo.entity.entitytype = CS_GS_pb2.Entity_Active
+        msgInfo.entity.entityid = member.mail
+        msgInfo.entity.health = member.health
+        msgInfo.entity.score = member.score
+        self.broadcastMsg(msgInfo)
+        msgInfo = CS_GS_pb2.StateSync()
+        msgInfo.entity.entitytype = msg.target.entitytype
+        msgInfo.entity.entityid = msg.target.entityid
+        msgInfo.entity.health = target.health
+        msgInfo.entity.score = target.score
+        self.broadcastMsg(msgInfo)
+
     def update(self, timeInterval):
         msgInfo = CS_GS_pb2.TransformSync()
-        msgInfo.roomid = self.roomID
         for key, value in self.members.items():
             if not value.active:
                 continue
@@ -108,6 +123,7 @@ class Room():
         self.broadcastMsg(msgInfo)
 
     def broadcastMsg(self, msgInfo):
+        msgInfo.roomid = self.roomID
         zipMsg = CS_GS_pb2.TransmitMsg()
         zipMsg.msgid = msgInfo.msgid
         for key, value in self.members.items():

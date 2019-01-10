@@ -8,8 +8,6 @@ class Player(entity.Entity):
     name = None
     active = False
     weapon = None
-
-    score = 0
     bullet = 100
     lastShootTime = 0
 

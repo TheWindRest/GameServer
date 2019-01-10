@@ -80,8 +80,7 @@ message StateSync
     optional MsgID msgid = 1 [default = CS2GS_StateSync];
     optional string mail = 2;
     optional string roomid = 3;
-    optional int32 health = 4;
-    optional int32 score = 5;
+    optional Entity entity = 4;
 }
 
 message ShootBullet
@@ -102,6 +101,8 @@ message Entity
 {
     optional EntityType entitytype = 1;
     optional string entityid = 2;
+    optional int32 health = 3;
+    optional int32 score = 4;
 }
 
 message TakeDamage
@@ -113,6 +114,7 @@ message TakeDamage
     optional int32 bulletid = 5;
     optional Entity shooter = 6;
     optional Entity target = 7;
+    optional int32 damage = 8;
 }
 
 message EntityDestroy
