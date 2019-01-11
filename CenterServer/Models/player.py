@@ -4,16 +4,14 @@ from CenterServer.Models import entity
 
 
 class Player(entity.Entity):
-    mail = None
     name = None
     active = False
     weapon = None
     bullet = 100
     lastShootTime = 0
 
-    def __init__(self, ID, mail, name):
-        entity.Entity.__init__(self, ID)
-        self.mail = mail
+    def __init__(self, mail, name):
+        entity.Entity.__init__(self, mail)
         self.name = name
 
     def update(self, timeInterval):

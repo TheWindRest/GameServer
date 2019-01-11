@@ -1,7 +1,7 @@
 
 
 class Entity():
-    entityID = 0
+    entityID = ""
     modelID = 0
     speed = 0
     rotation = [0, 0, 0]

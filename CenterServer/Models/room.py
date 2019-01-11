@@ -10,7 +10,6 @@ from CenterServer.Models import map_data
 
 
 class Room():
-    entityBaseID = 0
     roomID = 0
     mapID = 0
     mapData = ""
@@ -28,8 +27,8 @@ class Room():
         for key1, value1 in enumerate(self.mapArray):
             line = []
             for key2, value2 in enumerate(value1):
-                self.entityBaseID += 1
-                item = entity.Entity(self.entityBaseID)
+                entityID = str(key1 + 1) + "_" + str(key2 + 1)
+                item = entity.Entity(entityID)
                 item.position = [key1, key2, 0]
                 item.modelID = value2
                 line.append(item)
@@ -40,10 +39,9 @@ class Room():
             userInfo = user.getUser(value)
             if userInfo is None:
                 continue
-            self.entityBaseID += 1
             userInfo["roomid"] = self.roomID
             user.updateUser(userInfo, ["roomid"])
-            self.members[value] = player.Player(self.entityBaseID, value, userInfo["name"])
+            self.members[value] = player.Player(value, userInfo["name"])
             zipMsg = CS_GS_pb2.TransmitMsg()
             zipMsg.mail = value
             msgInfo = CS_GS_pb2.EnterRoom()
@@ -91,19 +89,8 @@ class Room():
 
         msg.damage = 10
         self.broadcastMsg(msg)
-
-        msgInfo = CS_GS_pb2.StateSync()
-        msgInfo.entity.entitytype = CS_GS_pb2.Entity_Active
-        msgInfo.entity.entityid = member.mail
-        msgInfo.entity.health = member.health
-        msgInfo.entity.score = member.score
-        self.broadcastMsg(msgInfo)
-        msgInfo = CS_GS_pb2.StateSync()
-        msgInfo.entity.entitytype = msg.target.entitytype
-        msgInfo.entity.entityid = msg.target.entityid
-        msgInfo.entity.health = target.health
-        msgInfo.entity.score = target.score
-        self.broadcastMsg(msgInfo)
+        self.broadcastState(member, CS_GS_pb2.Entity_Active)
+        self.broadcastState(target, msg.target.entitytype)
 
     def update(self, timeInterval):
         msgInfo = CS_GS_pb2.TransformSync()
@@ -132,3 +119,11 @@ class Room():
             zipMsg.mail = key
             msgInfo.mail = key
             self.gateProto.transmitMessage(zipMsg, msgInfo)
+
+    def broadcastState(self, member, entityType):
+        msgInfo = CS_GS_pb2.StateSync()
+        msgInfo.entity.entitytype = entityType
+        msgInfo.entity.entityid = member.entityID
+        msgInfo.entity.health = member.health
+        msgInfo.entity.score = member.score
+        self.broadcastMsg(msgInfo)
