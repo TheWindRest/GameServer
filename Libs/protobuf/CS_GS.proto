@@ -57,6 +57,7 @@ message EnterRoom
     optional string roomid = 4;
     optional string mapid = 5;
     optional string mapdata = 6;
+    optional Entity entity = 7;
 }
 
 message TransformInfo
@@ -102,7 +103,8 @@ message Entity
     optional EntityType entitytype = 1;
     optional string entityid = 2;
     optional int32 health = 3;
-    optional int32 score = 4;
+    optional int32 healthmax = 4;
+    optional int32 score = 5;
 }
 
 message TakeDamage

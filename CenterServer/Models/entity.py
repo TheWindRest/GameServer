@@ -7,6 +7,7 @@ class Entity():
     rotation = [0, 0, 0]
     position = [0, 0, 0]
     health = 100
+    healthMax = 100
     score = 0
 
     def __init__(self, ID):

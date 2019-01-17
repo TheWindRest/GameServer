@@ -50,6 +50,11 @@ class Room():
             msgInfo.roomid = self.roomID
             msgInfo.mapid = str(self.mapID)
             msgInfo.mapdata = self.mapData
+            msgInfo.entity.entitytype = CS_GS_pb2.Entity_Active
+            msgInfo.entity.entityid = value
+            msgInfo.entity.health = self.members[value].health
+            msgInfo.entity.healthmax = self.members[value].healthMax
+            msgInfo.entity.score = self.members[value].score
             self.gateProto.transmitMessage(zipMsg, msgInfo)
 
     def deletePlayer(self, mail):
@@ -125,5 +130,6 @@ class Room():
         msgInfo.entity.entitytype = entityType
         msgInfo.entity.entityid = member.entityID
         msgInfo.entity.health = member.health
+        msgInfo.entity.healthmax = member.healthMax
         msgInfo.entity.score = member.score
         self.broadcastMsg(msgInfo)
